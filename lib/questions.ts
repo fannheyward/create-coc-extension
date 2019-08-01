@@ -1,13 +1,20 @@
 import * as inquirer from 'inquirer';
+import { basename } from 'path';
+const { name } = require('validate-npm-package-name');
+const { guessAuthor, guessEmail } = require('conjecture');
 
-export async function questions(pkg, dest) {
-  console.log('pkg', pkg, dest);
+const validate = {
+  notEmpty: (input: string) => input && input.length > 0,
+  name: (input: string) => name(input).validForNewPackages
+};
+
+module.exports = (pkg: any, dest: string) =>
   inquirer.prompt([
     {
       type: 'list',
       name: 'license',
       message: 'choose a license:',
-      choices: ['MIT', 'GPL'],
+      choices: ['MIT', 'GPL'], //TODO
       default: 'MIT'
     },
     {
@@ -15,7 +22,7 @@ export async function questions(pkg, dest) {
       name: 'author',
       message: 'author full name:',
       default: guessAuthor,
-      filter: input => input.trim(),
+      filter: (input: string) => input.trim(),
       validate: validate.notEmpty
     },
     {
@@ -23,22 +30,15 @@ export async function questions(pkg, dest) {
       name: 'email',
       message: 'author email address:',
       default: guessEmail,
-      filter: input => input.trim(),
-      validate: validate.notEmpty
-    },
-    {
-      type: 'input',
-      name: 'website',
-      message: 'author website:',
-      filter: input => input.trim(),
+      filter: (input: string) => input.trim(),
       validate: validate.notEmpty
     },
     {
       type: 'input',
       name: 'title',
       message: 'project title:',
-      default: basename(destination),
-      filter: input => input.trim(),
+      default: basename(dest),
+      filter: (input: string) => input.trim(),
       validate: validate.notEmpty
     },
     {
@@ -46,32 +46,7 @@ export async function questions(pkg, dest) {
       name: 'description',
       message: 'project description:',
       default: pkg.description,
-      filter: input => input.trim(),
-      validate: validate.notEmpty
-    },
-    {
-      type: 'input',
-      name: 'homepage',
-      message: 'project homepage:',
-      default: answers => pkg.homepage || answers.website,
-      filter: input => input.trim(),
-      validate: validate.notEmpty
-    },
-    {
-      type: 'input',
-      name: 'org',
-      message: 'user/org name:',
-      default: answers => guessGitHubUsername(answers.email),
-      filter: input => input.trim(),
-      validate: validate.name
-    },
-    {
-      type: 'input',
-      name: 'name',
-      message: 'package/repo name:',
-      default: answers => (pkg.name ? pkg.name.split('/').pop() : kebab(answers.title)),
-      filter: input => input.trim(),
-      validate: validate.name
+      filter: (input: string) => input.trim()
     },
     {
       type: 'input',
@@ -82,16 +57,7 @@ export async function questions(pkg, dest) {
         input
           .trim()
           .split(',')
-          .map(keyword => keyword.trim()),
-      validate: validate.notEmpty
-    },
-    {
-      type: 'input',
-      name: 'twitter',
-      message: 'twitter:',
-      default: answers => guessGitHubUsername(answers.email),
-      filter: input => input.trim(),
+          .map((keyword: string) => keyword.trim()),
       validate: validate.notEmpty
     }
   ]);
-}

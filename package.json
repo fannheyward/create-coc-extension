@@ -11,7 +11,10 @@
   "devDependencies": {
     "@types/node": "^12.6.8",
     "@types/yargs": "^13.0.2",
-    "typescript": "^3.5.3"
+    "conjecture": "^0.1.2",
+    "fast-glob": "^3.0.4",
+    "typescript": "^3.5.3",
+    "validate-npm-package-name": "^3.0.0"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
