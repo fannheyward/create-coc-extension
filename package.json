@@ -1,0 +1,21 @@
+{
+  "name": "create-coc-extension",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Heyward Fann <fannheyward@gmail.com>",
+  "license": "MIT",
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "@types/yargs": "^13.0.2",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/inquirer": "^6.5.0",
+    "inquirer": "^6.5.0",
+    "yargs": "^13.3.0"
+  }
+}
