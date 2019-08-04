@@ -1,4 +1,3 @@
-import { guessAuthor, guessEmail } from 'conjecture';
 import * as inquirer from 'inquirer';
 import { basename } from 'path';
 
@@ -27,7 +26,6 @@ export async function questions(dest: string): Promise<any> {
       type: 'input',
       name: 'author',
       message: 'author full name:',
-      default: guessAuthor,
       filter: (input: string) => input.trim(),
       validate: validate.notEmpty
     },
@@ -35,7 +33,6 @@ export async function questions(dest: string): Promise<any> {
       type: 'input',
       name: 'email',
       message: 'author email address:',
-      default: guessEmail,
       filter: (input: string) => input.trim(),
       validate: validate.notEmpty
     }

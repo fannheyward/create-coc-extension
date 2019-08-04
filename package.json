@@ -1,23 +1,33 @@
 {
   "name": "create-coc-extension",
   "version": "0.1.0",
-  "main": "index.js",
   "author": "Heyward Fann <fannheyward@gmail.com>",
   "license": "MIT",
-  "bin": "cli.js",
+  "bin": "bin/cli.js",
   "engines": {
     "node": ">=8"
   },
+  "files": [
+    "bin/cli.js"
+  ],
+  "scripts": {
+    "clean": "rimraf bin/index.js",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "prepare": "npx npm-run-all clean build"
+  },
   "devDependencies": {
-    "@types/chalk": "^2.2.0",
     "@types/inquirer": "^6.5.0",
     "@types/node": "^12.6.8",
     "@types/yargs": "^13.0.2",
     "chalk": "^2.4.2",
-    "conjecture": "^0.1.2",
     "fast-glob": "^3.0.4",
     "inquirer": "^6.5.0",
+    "rimraf": "^2.6.3",
+    "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
     "yargs": "^13.3.0"
   },
   "dependencies": {}
