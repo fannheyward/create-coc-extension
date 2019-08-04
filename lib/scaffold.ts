@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import * as glob from 'fast-glob';
 import * as fs from 'fs';
 import { dirname, join, resolve } from 'path';
@@ -33,7 +34,17 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
 
     // write file to destination
     await write(join(dest, file), content);
-
-    console.log(`Created file: ${join(dest, file)}`);
   });
+
+  const cmd = `cd ${dest} && yarn`;
+  const vimcmd = `set runtimepath^=${dest}`;
+  const cocmsg = `[coc.nvim] ${answers.title} is works!`;
+
+  console.log(`
+${answers.title} is created.
+
+  ${chalk.green(cmd)}
+
+then ${chalk.green(vimcmd)} in vim, and you will see ${chalk.green(cocmsg)} in vim messages.
+`);
 }

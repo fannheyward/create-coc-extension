@@ -9,9 +9,11 @@
     "node": ">=8"
   },
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
     "@types/inquirer": "^6.5.0",
     "@types/node": "^12.6.8",
     "@types/yargs": "^13.0.2",
+    "chalk": "^2.4.2",
     "conjecture": "^0.1.2",
     "fast-glob": "^3.0.4",
     "inquirer": "^6.5.0",
