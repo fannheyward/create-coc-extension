@@ -1,9 +1,9 @@
-import * as yargs from 'yargs';
-import { join, resolve, dirname } from 'path';
-import * as fs from 'fs';
 import * as glob from 'fast-glob';
+import * as fs from 'fs';
+import { dirname, join, resolve } from 'path';
 import { promisify } from 'util';
-const questions = require('./questions');
+import * as yargs from 'yargs';
+import { questions } from './questions';
 
 const read = promisify(fs.readFile);
 const write = promisify(fs.writeFile);
@@ -14,19 +14,10 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
   const dest = resolve(argv['path']);
   await fs.mkdirSync(dest, { recursive: true });
 
-  let pkg = {};
-  try {
-    pkg = require(join(dest, 'package.json'));
-  } catch (e) {}
-
-  const answers = await questions(pkg, dest);
-
-  answers.keywards = JSON.stringify(answers.topics);
+  const answers = await questions(dest);
 
   const stream = glob.stream('**/*', { cwd: template, dot: true });
-
   stream.on('data', async file => {
-    console.log(file);
     const dir = dirname(file);
 
     if (dir !== '.') {
@@ -43,10 +34,6 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     // write file to destination
     await write(join(dest, file), content);
 
-    // console message
-    {
-      /* console.log(`${green('created file')}: ${join(destination, file)}`); */
-    }
-    console.log(`'created file': ${join(dest, file)}`);
+    console.log(`Created file: ${join(dest, file)}`);
   });
 }
