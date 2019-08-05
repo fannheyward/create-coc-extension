@@ -37,14 +37,14 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
   });
 
   const cmd = `cd ${dest} && yarn`;
-  const vimcmd = `set runtimepath^=${dest}`;
-  const cocmsg = `[coc.nvim] ${answers.title} is works!`;
+  const vimcmd = `"set runtimepath^=${dest}"`;
+  const cocmsg = `"[coc.nvim] ${answers.title} is works!"`;
 
   console.log(`
 ${answers.title} is created.
 
   ${chalk.green(cmd)}
 
-then ${chalk.green(vimcmd)} in vim, and you will see ${chalk.green(cocmsg)} in vim messages.
+then ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.
 `);
 }
