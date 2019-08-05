@@ -28,5 +28,24 @@
     "typescript": "^3.5.2",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5"
+  },
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "[title] configuration",
+      "properties": {
+        "[title].enabled": {
+          "type": "boolean",
+          "default": "true",
+          "description": "Enable [title] extension"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "[title].Command",
+        "title": "[title] command title"
+      }
+    ]
   }
 }
