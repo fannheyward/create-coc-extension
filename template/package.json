@@ -11,9 +11,6 @@
   "engines": {
     "coc": "^0.0.70"
   },
-  "files": [
-    "lib"
-  ],
   "scripts": {
     "clean": "rimraf lib",
     "watch": "webpack --watch",
