@@ -8,7 +8,8 @@
     "node": ">=8"
   },
   "files": [
-    "bin/cli.js"
+    "bin/cli.js",
+    "template"
   ],
   "scripts": {
     "clean": "rimraf bin/index.js",
