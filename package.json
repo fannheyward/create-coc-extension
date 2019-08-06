@@ -11,6 +11,10 @@
     "bin/cli.js",
     "template"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fannheyward/create-coc-extension"
+  },
   "scripts": {
     "clean": "rimraf bin/index.js",
     "watch": "webpack --watch",
