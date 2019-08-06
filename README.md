@@ -1,4 +1,4 @@
-# Create-coc-extension
+# create-coc-extension
 
 Create a coc extension quickly 🚀
 
