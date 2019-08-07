@@ -4,7 +4,7 @@
 
 ## Install
 
-`:CocInstall [name]`
+`:CocInstall [title]`
 
 ## License
 
