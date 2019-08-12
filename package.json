@@ -27,7 +27,7 @@
     "@types/yargs": "^13.0.2",
     "chalk": "^2.4.2",
     "fast-glob": "^3.0.4",
-    "inquirer": "^6.5.0",
+    "inquirer": "^6.5.1",
     "rimraf": "^2.6.3",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
