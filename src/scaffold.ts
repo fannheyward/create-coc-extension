@@ -13,6 +13,10 @@ const template = join(__dirname, '..', 'template');
 
 export async function scaffold(argv: yargs.Argv): Promise<void> {
   const dest = resolve(argv['path']);
+  if (fs.existsSync(dest)) {
+    console.error(`${chalk.red(dest)} already exist`);
+    return;
+  }
   await fs.mkdirSync(dest, { recursive: true });
 
   const answers = await questions(dest);
