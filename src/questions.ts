@@ -1,5 +1,6 @@
 import * as inquirer from 'inquirer';
 import { basename } from 'path';
+import { getGitUseremail, getGitUsername } from './util';
 
 const validate = {
   notEmpty: (input: string) => input && input.length > 0
@@ -26,6 +27,7 @@ export async function questions(dest: string): Promise<any> {
       type: 'input',
       name: 'author',
       message: 'author full name:',
+      default: getGitUsername(),
       filter: (input: string) => input.trim(),
       validate: validate.notEmpty
     },
@@ -33,6 +35,7 @@ export async function questions(dest: string): Promise<any> {
       type: 'input',
       name: 'email',
       message: 'author email address:',
+      default: getGitUseremail(),
       filter: (input: string) => input.trim(),
       validate: validate.notEmpty
     }
