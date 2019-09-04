@@ -5,6 +5,7 @@ import { dirname, join, resolve } from 'path';
 import { promisify } from 'util';
 import * as yargs from 'yargs';
 import { questions } from './questions';
+import { gitInit, nodeInstall } from './util';
 
 const read = promisify(fs.readFile);
 const write = promisify(fs.writeFile);
@@ -17,7 +18,7 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     console.error(`${chalk.red(dest)} already exist`);
     return;
   }
-  await fs.mkdirSync(dest, { recursive: true });
+  fs.mkdirSync(dest, { recursive: true });
 
   const answers = await questions(dest);
 
@@ -26,7 +27,7 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     const dir = dirname(file);
 
     if (dir !== '.') {
-      await fs.mkdirSync(join(dest, dir), { recursive: true });
+      fs.mkdirSync(join(dest, dir), { recursive: true });
     }
 
     let content = await read(join(template, file), 'utf8');
@@ -40,15 +41,27 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     await write(join(dest, file), content);
   });
 
+  if (answers.git) {
+    await gitInit(dest);
+  }
+
   const cmd = `cd ${dest} && yarn`;
   const vimcmd = `"set runtimepath^=${dest}"`;
   const cocmsg = `"[coc.nvim] ${answers.title} is works!"`;
 
-  console.log(`
+  if (answers.npm) {
+    console.log(`\n  installing node dependencies...\n`);
+
+    await nodeInstall(dest);
+
+    console.log(`${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.`);
+  } else {
+    console.log(`
 ${answers.title} is created.
 
   ${chalk.green(cmd)}
 
 then ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.
 `);
+  }
 }

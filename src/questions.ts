@@ -11,7 +11,7 @@ export async function questions(dest: string): Promise<any> {
     {
       type: 'input',
       name: 'title',
-      message: 'project title:',
+      message: 'Project title:',
       default: basename(dest),
       filter: (input: string) => input.trim(),
       validate: validate.notEmpty
@@ -19,14 +19,14 @@ export async function questions(dest: string): Promise<any> {
     {
       type: 'input',
       name: 'description',
-      message: 'project description:',
+      message: 'Project description:',
       default: '',
       filter: (input: string) => input.trim()
     },
     {
       type: 'input',
       name: 'author',
-      message: 'author full name:',
+      message: 'Author full name:',
       default: getGitUsername(),
       filter: (input: string) => input.trim(),
       validate: validate.notEmpty
@@ -34,10 +34,22 @@ export async function questions(dest: string): Promise<any> {
     {
       type: 'input',
       name: 'email',
-      message: 'author email address:',
+      message: 'Author email address:',
       default: getGitUseremail(),
       filter: (input: string) => input.trim(),
       validate: validate.notEmpty
+    },
+    {
+      type: 'confirm',
+      name: 'git',
+      message: 'Initialize a git repository?',
+      default: true
+    },
+    {
+      type: 'confirm',
+      name: 'npm',
+      message: 'Install node dependencies?',
+      default: true
     }
   ]);
 }
