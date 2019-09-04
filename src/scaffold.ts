@@ -38,6 +38,9 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     });
 
     // write file to destination
+    if (file === 'npmignore') {
+      file = '.npmignore';
+    }
     await write(join(dest, file), content);
   });
 
