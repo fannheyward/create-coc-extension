@@ -1,7 +1,7 @@
 import { commands, CompleteResult, ExtensionContext, sources, workspace } from 'coc.nvim';
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  workspace.showMessage(`[title] is works!`);
+  workspace.showMessage(`[title] works!`);
 
   context.subscriptions.push(
     commands.registerCommand('[title].Command', async () => {
