@@ -17,7 +17,16 @@ export async function activate(context: ExtensionContext): Promise<void> {
         const items = await getItems();
         return items;
       }
-    })
+    }),
+
+    workspace.registerKeymap(
+      ['n'],
+      '[title]-keymap',
+      async () => {
+        workspace.showMessage(`registerKeymap`);
+      },
+      { sync: false }
+    )
   );
 }
 
