@@ -26,7 +26,15 @@ export async function activate(context: ExtensionContext): Promise<void> {
         workspace.showMessage(`registerKeymap`);
       },
       { sync: false }
-    )
+    ),
+
+    workspace.registerAutocmd({
+      event: 'InsertLeave',
+      request: true,
+      callback: () => {
+        workspace.showMessage(`registerAutocmd on InsertLeave`);
+      }
+    })
   );
 }
 
