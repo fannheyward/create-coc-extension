@@ -18,14 +18,14 @@
     "prepare": "npm-run-all clean build"
   },
   "devDependencies": {
-    "@types/node": "^12.7.1",
+    "@types/node": "^12.11.5",
     "coc.nvim": "^0.0.74",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.0",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.6"
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   },
   "contributes": {
     "configuration": {
