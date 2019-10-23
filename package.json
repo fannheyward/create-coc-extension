@@ -19,7 +19,7 @@
     "clean": "rimraf bin/index.js",
     "watch": "webpack --watch",
     "build": "webpack",
-    "prepare": "npx npm-run-all clean build"
+    "prepare": "npm-run-all clean build"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
@@ -29,6 +29,7 @@
     "chalk": "^2.4.2",
     "fast-glob": "^3.1.0",
     "inquirer": "^7.0.0",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.0",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
