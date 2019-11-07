@@ -1,23 +1,26 @@
-import { exec, ExecOptions, execSync } from 'child_process';
+import { execSync, spawn } from 'child_process';
 import os from 'os';
 import { chdir } from 'process';
 import which from 'which';
 
-function runCommand(cmd: string, output?: string, opts: ExecOptions = {}, timeout?: number): Promise<string> {
+function runCommand(cmd: string, args?: readonly string[]): Promise<string> {
   return new Promise<string>((resolve, reject) => {
-    let timer: NodeJS.Timer;
-    if (timeout) {
-      timer = setTimeout(() => {
-        reject(new Error(`timeout after ${timeout}s`));
-      }, timeout * 1000);
-    }
+    const child = spawn(cmd, args);
+    child.stderr.setEncoding('utf8');
+    child.stdout.on('data', chunk => {
+      process.stdout.write(chunk.toString());
+    });
 
-    exec(cmd, opts, (_err, stdout, stderr) => {
-      if (timer) {
-        clearTimeout(timer);
+    child.on('error', reject);
+    let err = '';
+    child.stderr.on('data', data => {
+      err += data;
+    });
+    child.on('exit', code => {
+      if (code) {
+        console.error(`Error: ${code}, ${err}`);
       }
-
-      output ? resolve(stdout) : resolve(stderr);
+      resolve();
     });
   });
 }
@@ -79,15 +82,7 @@ export async function gitInit(dest: string) {
 export async function nodeInstall(dest: string) {
   chdir(dest);
 
-  let bin = which.sync('yarnpkg', { nothrow: true });
-  if (bin) {
-    // yarn
-    await runCommand(bin);
-  } else {
-    // npm
-    bin = which.sync('npm', { nothrow: true });
-    if (bin) {
-      runCommand(`npm install`);
-    }
-  }
+  const bin = which.sync('yarnpkg', { nothrow: true });
+  const cmd = bin ? 'yarnpkg' : 'npm';
+  await runCommand(cmd, ['install']);
 }
