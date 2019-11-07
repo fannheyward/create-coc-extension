@@ -57,7 +57,7 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
 
     await nodeInstall(dest);
 
-    console.log(`${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.`);
+    console.log(`\n${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.`);
   } else {
     console.log(`
 ${answers.title} is created.
