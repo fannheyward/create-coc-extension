@@ -10,6 +10,10 @@
 
 `nmap <silent> <C-l> <Plug>(coc-[title]-keymap)`
 
+## Lists
+
+`:CocList demo_list`
+
 ## License
 
 MIT

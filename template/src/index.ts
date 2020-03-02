@@ -1,4 +1,5 @@
-import { commands, CompleteResult, ExtensionContext, sources, workspace } from 'coc.nvim';
+import { commands, CompleteResult, ExtensionContext, listManager, sources, workspace } from 'coc.nvim';
+import DemoList from './lists';
 
 export async function activate(context: ExtensionContext): Promise<void> {
   workspace.showMessage(`[title] works!`);
@@ -8,13 +9,15 @@ export async function activate(context: ExtensionContext): Promise<void> {
       workspace.showMessage(`[title] Commands works!`);
     }),
 
+    listManager.registerList(new DemoList(workspace.nvim)),
+
     sources.createSource({
       name: '[title] completion source', // unique id
       shortcut: '[CS]', // [CS] is custom source
       priority: 1,
       triggerPatterns: [], // RegExp pattern
       doComplete: async () => {
-        const items = await getItems();
+        const items = await getCompletionItems();
         return items;
       }
     }),
@@ -38,7 +41,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   );
 }
 
-async function getItems(): Promise<CompleteResult> {
+async function getCompletionItems(): Promise<CompleteResult> {
   return {
     items: [
       {
