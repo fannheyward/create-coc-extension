@@ -82,7 +82,8 @@ export async function gitInit(dest: string) {
 export async function nodeInstall(dest: string) {
   chdir(dest);
 
-  const bin = which.sync('yarnpkg', { nothrow: true });
-  const cmd = bin ? 'yarnpkg' : 'npm';
+  const yarn = which.sync('yarnpkg', { nothrow: true });
+  const npm = which.sync('npm', { nothrow: true });
+  const cmd = yarn ? yarn : (npm ? npm : 'npm');
   await runCommand(cmd, ['install']);
 }
