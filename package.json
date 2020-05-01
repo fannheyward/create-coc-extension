@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
-    "@types/node": "^13.13.1",
+    "@types/node": "^13.13.4",
     "@types/which": "^1.3.2",
     "@types/yargs": "^15.0.4",
     "chalk": "^4.0.0",
