@@ -16,23 +16,23 @@
     "url": "https://github.com/fannheyward/create-coc-extension"
   },
   "scripts": {
-    "clean": "rimraf bin/index.js",
+    "clean": "rimraf bin/cli.js",
     "watch": "webpack --watch",
     "build": "webpack",
     "prepare": "npm-run-all clean build"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
-    "@types/node": "^13.13.1",
+    "@types/node": "^14.0.5",
     "@types/which": "^1.3.2",
-    "@types/yargs": "^15.0.4",
+    "@types/yargs": "^15.0.5",
     "chalk": "^4.0.0",
     "fast-glob": "^3.2.2",
     "inquirer": "^7.1.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
-    "ts-loader": "^7.0.1",
-    "typescript": "^3.8.3",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "which": "^2.0.2",
