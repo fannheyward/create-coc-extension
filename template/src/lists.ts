@@ -18,12 +18,12 @@ export default class DemoList extends BasicList {
     return [
       {
         label: '[title] list item 1',
-        data: { name: 'list item 1' }
+        data: { name: 'list item 1' },
       },
       {
         label: '[title] list item 2',
-        data: { name: 'list item 2' }
-      }
+        data: { name: 'list item 2' },
+      },
     ];
   }
 }

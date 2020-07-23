@@ -19,7 +19,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       doComplete: async () => {
         const items = await getCompletionItems();
         return items;
-      }
+      },
     }),
 
     workspace.registerKeymap(
@@ -36,7 +36,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       request: true,
       callback: () => {
         workspace.showMessage(`registerAutocmd on InsertLeave`);
-      }
+      },
     })
   );
 }
@@ -45,11 +45,11 @@ async function getCompletionItems(): Promise<CompleteResult> {
   return {
     items: [
       {
-        word: 'TestCompletionItem 1'
+        word: 'TestCompletionItem 1',
       },
       {
-        word: 'TestCompletionItem 2'
-      }
-    ]
+        word: 'TestCompletionItem 2',
+      },
+    ],
   };
 }

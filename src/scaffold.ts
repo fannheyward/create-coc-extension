@@ -23,7 +23,7 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
   const answers = await questions(dest);
 
   const stream = glob.stream('**/*', { cwd: template, dot: true });
-  stream.on('data', async file => {
+  stream.on('data', async (file) => {
     const dir = dirname(file);
 
     if (dir !== '.') {
@@ -41,6 +41,9 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     if (file === 'npmignore') {
       file = '.npmignore';
     }
+    if (file === 'eslintrc.js') {
+      file = '.eslintrc.js';
+    }
     await write(join(dest, file), content);
   });
 
@@ -57,7 +60,9 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
 
     await nodeInstall(dest);
 
-    console.log(`\n${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.`);
+    console.log(
+      `\n${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.`
+    );
   } else {
     console.log(`
 ${answers.title} is created.

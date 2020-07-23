@@ -7,16 +7,16 @@ function runCommand(cmd: string, args?: readonly string[]): Promise<string> {
   return new Promise<string>((resolve, reject) => {
     const child = spawn(cmd, args);
     child.stderr.setEncoding('utf8');
-    child.stdout.on('data', chunk => {
+    child.stdout.on('data', (chunk) => {
       process.stdout.write(chunk.toString());
     });
 
     child.on('error', reject);
     let err = '';
-    child.stderr.on('data', data => {
+    child.stderr.on('data', (data) => {
       err += data;
     });
-    child.on('exit', code => {
+    child.on('exit', (code) => {
       if (code) {
         console.error(`Error: ${code}, ${err}`);
       }
@@ -37,8 +37,8 @@ function getGitConfig(): object | undefined {
   const eol = os.platform() === 'win32' ? '\n' : os.EOL;
   stdout
     .split(eol)
-    .filter(line => !!line)
-    .forEach(line => {
+    .filter((line) => !!line)
+    .forEach((line) => {
       let [key, val] = line.split('=');
       if (val === undefined) {
         return;
@@ -84,6 +84,6 @@ export async function nodeInstall(dest: string) {
 
   const yarn = which.sync('yarnpkg', { nothrow: true });
   const npm = which.sync('npm', { nothrow: true });
-  const cmd = yarn ? yarn : (npm ? npm : 'npm');
+  const cmd = yarn ? yarn : npm ? npm : 'npm';
   await runCommand(cmd, ['install']);
 }
