@@ -7,9 +7,11 @@ module.exports = {
   mode: 'none',
   resolve: {
     mainFields: ['module', 'main'],
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
   },
-  externals: {
+  externals: {},
+  optimization: {
+    minimize: true,
   },
   module: {
     rules: [
@@ -21,24 +23,22 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               compilerOptions: {
-                sourceMap: true
-              }
-            }
-          }
-        ]
-      }
-    ]
+                sourceMap: true,
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
   output: {
     path: path.join(__dirname, 'bin'),
     filename: 'cli.js',
-    libraryTarget: 'commonjs'
+    libraryTarget: 'commonjs',
   },
-  plugins: [
-    new webpack.BannerPlugin({banner: '#!/usr/bin/env node', raw: true}),
-  ],
+  plugins: [new webpack.BannerPlugin({ banner: '#!/usr/bin/env node', raw: true })],
   node: {
     __dirname: false,
-    __filename: false
-  }
+    __filename: false,
+  },
 };

@@ -12,6 +12,9 @@ module.exports = {
   externals: {
     'coc.nvim': 'commonjs coc.nvim'
   },
+  optimization: {
+    minimize: true
+  },
   module: {
     rules: [
       {
