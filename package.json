@@ -33,7 +33,7 @@
     "rimraf": "^3.0.2",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "which": "^2.0.2",
     "yargs": "^15.4.1"
