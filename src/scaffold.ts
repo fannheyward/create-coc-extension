@@ -38,10 +38,12 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     });
 
     // write file to destination
-    if (file === 'gitignore') file = '.gitignore';
-    if (file === 'npmignore') file = '.npmignore';
-    if (file === 'eslintrc.js') file = '.eslintrc.js';
-
+    if (file === 'npmignore') {
+      file = '.npmignore';
+    }
+    if (file === 'eslintrc.js') {
+      file = '.eslintrc.js';
+    }
     await write(join(dest, file), content);
   });
 
