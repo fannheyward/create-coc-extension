@@ -36,6 +36,9 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
     Object.entries(answers).forEach(([key, value]) => {
       content = content.replace(new RegExp(`\\[${key}\\]`, 'g'), <string>value);
     });
+    
+    // registerKeymap should not has a coc prefix
+    content = content.replace(new RegExp(`\\[keymap-title\\]`, 'g'), <string>answers["title"].replace(/^coc-/,""));
 
     // write file to destination
     if (file === 'npmignore') {

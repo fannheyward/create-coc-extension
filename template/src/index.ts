@@ -24,7 +24,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
     workspace.registerKeymap(
       ['n'],
-      '[title]-keymap',
+      '[keymap-title]-keymap',
       async () => {
         workspace.showMessage(`registerKeymap`);
       },
