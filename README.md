@@ -42,7 +42,7 @@ coc-test is created.
 
   cd /Users/fannheyward/src/coc-test && yarn
 
-then "set runtimepath^=/Users/fannheyward/src/coc-test" in vimrc/init.vim, and you will see "[coc.nvim] coc-test is works!" in vim messages.
+then "set runtimepath^=/Users/fannheyward/src/coc-test" in vimrc/init.vim, and you will see "[coc.nvim] coc-test works!" in vim messages.
 ```
 
 1. `:CocCommand coc-test.Command` for command

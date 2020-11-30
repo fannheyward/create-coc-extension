@@ -56,7 +56,7 @@ export async function scaffold(argv: yargs.Argv): Promise<void> {
 
   const cmd = `cd ${dest} && yarn`;
   const vimcmd = `"set runtimepath^=${dest}"`;
-  const cocmsg = `"[coc.nvim] ${answers.title} is works!"`;
+  const cocmsg = `"[coc.nvim] ${answers.title} works!"`;
 
   if (answers.npm) {
     console.log(`\n  installing node dependencies...\n`);
