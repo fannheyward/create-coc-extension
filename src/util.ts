@@ -3,8 +3,8 @@ import os from 'os';
 import { chdir } from 'process';
 import which from 'which';
 
-function runCommand(cmd: string, args?: readonly string[]): Promise<string> {
-  return new Promise<string>((resolve, reject) => {
+function runCommand(cmd: string, args?: readonly string[]): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
     const child = spawn(cmd, args);
     child.stderr.setEncoding('utf8');
     child.stdout.on('data', (chunk) => {
