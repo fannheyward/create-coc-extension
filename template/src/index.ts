@@ -46,9 +46,11 @@ async function getCompletionItems(): Promise<CompleteResult> {
     items: [
       {
         word: 'TestCompletionItem 1',
+        menu: '[CS]'
       },
       {
         word: 'TestCompletionItem 2',
+        menu: '[CS]'
       },
     ],
   };
