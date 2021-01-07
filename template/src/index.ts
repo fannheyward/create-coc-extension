@@ -1,21 +1,18 @@
-import { commands, CompleteResult, ExtensionContext, listManager, sources, workspace } from 'coc.nvim';
+import { commands, CompleteResult, ExtensionContext, listManager, sources, window, workspace } from 'coc.nvim';
 import DemoList from './lists';
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  workspace.showMessage(`[title] works!`);
+  window.showMessage(`[title] works!`);
 
   context.subscriptions.push(
     commands.registerCommand('[title].Command', async () => {
-      workspace.showMessage(`[title] Commands works!`);
+      window.showMessage(`[title] Commands works!`);
     }),
 
     listManager.registerList(new DemoList(workspace.nvim)),
 
     sources.createSource({
       name: '[title] completion source', // unique id
-      shortcut: '[CS]', // [CS] is custom source
-      priority: 1,
-      triggerPatterns: [], // RegExp pattern
       doComplete: async () => {
         const items = await getCompletionItems();
         return items;
@@ -26,7 +23,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       ['n'],
       '[keymap-title]-keymap',
       async () => {
-        workspace.showMessage(`registerKeymap`);
+        window.showMessage(`registerKeymap`);
       },
       { sync: false }
     ),
@@ -35,7 +32,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       event: 'InsertLeave',
       request: true,
       callback: () => {
-        workspace.showMessage(`registerAutocmd on InsertLeave`);
+        window.showMessage(`registerAutocmd on InsertLeave`);
       },
     })
   );
@@ -46,11 +43,11 @@ async function getCompletionItems(): Promise<CompleteResult> {
     items: [
       {
         word: 'TestCompletionItem 1',
-        menu: '[CS]'
+        menu: '[[title]]',
       },
       {
         word: 'TestCompletionItem 2',
-        menu: '[CS]'
+        menu: '[[title]]',
       },
     ],
   };

@@ -9,7 +9,7 @@
     "coc.nvim"
   ],
   "engines": {
-    "coc": "^0.0.77"
+    "coc": "^0.0.80"
   },
   "scripts": {
     "lint": "eslint src --ext ts",
