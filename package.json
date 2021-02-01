@@ -24,7 +24,7 @@
   "devDependencies": {
     "@types/inquirer": "^7.3.1",
     "@types/which": "^2.0.0",
-    "@types/yargs": "^15.0.12",
+    "@types/yargs": "^16.0.0",
     "chalk": "^4.1.0",
     "fast-glob": "^3.2.5",
     "inquirer": "^7.3.3",
