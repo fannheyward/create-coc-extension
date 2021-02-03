@@ -3,7 +3,6 @@ import * as glob from 'fast-glob';
 import * as fs from 'fs';
 import { dirname, join, resolve } from 'path';
 import { promisify } from 'util';
-import * as yargs from 'yargs';
 import { questions } from './questions';
 import { gitInit, nodeInstall } from './util';
 
@@ -12,8 +11,8 @@ const write = promisify(fs.writeFile);
 
 const template = join(__dirname, '..', 'template');
 
-export async function scaffold(argv: yargs.Argv): Promise<void> {
-  const dest = resolve(argv['path']);
+export async function scaffold(dest: string): Promise<void> {
+  dest = resolve(dest);
   if (fs.existsSync(dest)) {
     console.error(`${chalk.red(dest)} already exist`);
     return;
