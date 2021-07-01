@@ -26,7 +26,7 @@
     "@types/yargs": "^17.0.0",
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
-    "esbuild": "^0.12.5",
+    "esbuild": "^0.12.13",
     "fast-glob": "^3.2.6",
     "inquirer": "^8.1.1",
     "rimraf": "^3.0.2",
