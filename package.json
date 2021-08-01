@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/inquirer": "^7.3.3",
-    "@types/which": "^2.0.0",
+    "@types/which": "^2.0.1",
     "@types/yargs": "^17.0.0",
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
