@@ -1,6 +1,6 @@
 {
   "name": "create-coc-extension",
-  "version": "0.6.4",
+  "version": "0.7.0",
   "author": "Heyward Fann <fannheyward@gmail.com>",
   "license": "MIT",
   "bin": "bin/cli.js",
