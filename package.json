@@ -5,7 +5,7 @@
   "license": "MIT",
   "bin": "bin/cli.js",
   "engines": {
-    "node": ">=8"
+    "node": ">=16"
   },
   "files": [
     "bin/cli.js",
