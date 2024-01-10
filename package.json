@@ -21,17 +21,17 @@
     "prepare": "rimraf bin/cli.js && node esbuild.js"
   },
   "devDependencies": {
-    "@types/inquirer": "^9.0.3",
-    "@types/which": "^3.0.0",
-    "@types/yargs": "^17.0.24",
-    "chalk": "^5.2.0",
-    "commander": "^10.0.1",
-    "esbuild": "^0.17.18",
-    "fast-glob": "^3.2.12",
-    "inquirer": "^9.2.0",
-    "rimraf": "^5.0.0",
-    "typescript": "^5.0.4",
-    "which": "^3.0.1"
+    "@types/inquirer": "^9.0.7",
+    "@types/which": "^3.0.3",
+    "@types/yargs": "^17.0.32",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "esbuild": "^0.19.11",
+    "fast-glob": "^3.3.2",
+    "inquirer": "^9.2.12",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
+    "which": "^4.0.0"
   },
   "dependencies": {}
 }
