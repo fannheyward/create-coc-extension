@@ -43,9 +43,6 @@ export async function scaffold(dest: string): Promise<void> {
     if (file === 'npmignore') {
       file = '.npmignore';
     }
-    if (file === 'eslintrc.js') {
-      file = '.eslintrc.js';
-    }
     await write(join(dest, file), content);
   });
 
