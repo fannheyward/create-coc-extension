@@ -4,12 +4,6 @@ Create a coc extension quickly 🚀
 
 ## Usage
 
-### yarn
-
-```sh
-yarn create coc-extension [extension-name]
-```
-
 ### npx
 
 ```sh
@@ -22,17 +16,16 @@ npx create-coc-extension [extension-name]
 npm init coc-extension [extension-name]
 ```
 
-then cd to your extension root and `yarn`.
+then cd to your extension root:
 
-- `yarn clean`
-- `yarn build`
-- `yarn` to clean & build
+- `npm install`
+- `npm run build`
 
 ## Example
 
 ```sh
 cd ~/src
-yarn create coc-extension coc-test
+npx create-coc-extension coc-test
 ? project title: coc-test
 ? project description: coc-test extension
 ? author full name: Heyward Fann
@@ -40,7 +33,7 @@ yarn create coc-extension coc-test
 
 coc-test is created.
 
-  cd /Users/fannheyward/src/coc-test && yarn
+  cd /Users/fannheyward/src/coc-test && npm i
 
 then "set runtimepath^=/Users/fannheyward/src/coc-test" in vimrc/init.vim, and you will see "[coc.nvim] coc-test works!" in vim messages.
 ```

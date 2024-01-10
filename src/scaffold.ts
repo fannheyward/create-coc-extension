@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import { dirname, join, resolve } from 'path';
 import { promisify } from 'util';
 import { questions } from './questions';
-import { gitInit, nodeInstall } from './util';
+import { gitInit, npmInstall } from './util';
 
 const read = promisify(fs.readFile);
 const write = promisify(fs.writeFile);
@@ -53,14 +53,14 @@ export async function scaffold(dest: string): Promise<void> {
     await gitInit(dest);
   }
 
-  const cmd = `cd ${dest} && yarn`;
+  const cmd = `cd ${dest} && npm install`;
   const vimcmd = `"set runtimepath^=${dest}"`;
   const cocmsg = `"[coc.nvim] ${answers.title} works!"`;
 
   if (answers.npm) {
     console.log(`\n  installing node dependencies...\n`);
 
-    await nodeInstall(dest);
+    await npmInstall(dest);
 
     console.log(
       `\n${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.`
