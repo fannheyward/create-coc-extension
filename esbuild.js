@@ -2,15 +2,15 @@
 async function start() {
   await require('esbuild').build({
     entryPoints: ['src/index.ts'],
-    banner: {js: '#!/usr/bin/env node'},
+    banner: { js: '#!/usr/bin/env node' },
     bundle: true,
-    minify: process.env.NODE_ENV === 'production',
-    sourcemap: process.env.NODE_ENV === 'development',
+    minify: true,
+    sourcemap: false,
     mainFields: ['module', 'main'],
     tsconfig: 'tsconfig.json',
     external: [],
     platform: 'node',
-    target: 'node10.12',
+    target: 'node18',
     outfile: 'bin/cli.js',
   });
 }
