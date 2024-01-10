@@ -60,7 +60,7 @@ export async function scaffold(dest: string): Promise<void> {
     await npmInstall(dest);
 
     console.log(
-      `\n${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.`
+      `\n${answers.title} is created. Now ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} notification.`
     );
   } else {
     console.log(`
@@ -68,7 +68,7 @@ ${answers.title} is created.
 
   ${chalk.green(cmd)}
 
-then ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} in vim messages.
+then ${chalk.green(vimcmd)} in vimrc/init.vim, open vim and you will see ${chalk.green(cocmsg)} notification.
 `);
   }
 }
