@@ -1,4 +1,4 @@
-import { BasicList, ListAction, ListContext, ListItem, Neovim, window } from 'coc.nvim';
+import { BasicList, ListAction, ListContext, ListItem, window } from 'coc.nvim';
 
 export default class DemoList extends BasicList {
   public readonly name = 'demo_list';
@@ -6,11 +6,11 @@ export default class DemoList extends BasicList {
   public readonly defaultAction = 'open';
   public actions: ListAction[] = [];
 
-  constructor(nvim: Neovim) {
-    super(nvim);
+  constructor() {
+    super();
 
     this.addAction('open', (item: ListItem) => {
-      window.showMessage(`${item.label}, ${item.data.name}`);
+      window.showInformationMessage(`${item.label}, ${item.data.name}`);
     });
   }
 

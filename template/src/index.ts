@@ -2,14 +2,14 @@ import { commands, CompleteResult, ExtensionContext, listManager, sources, windo
 import DemoList from './lists';
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  window.showMessage(`[title] works!`);
+  window.showInformationMessage('[title] works!');
 
   context.subscriptions.push(
     commands.registerCommand('[title].Command', async () => {
-      window.showMessage(`[title] Commands works!`);
+      window.showInformationMessage('[title] Commands works!');
     }),
 
-    listManager.registerList(new DemoList(workspace.nvim)),
+    listManager.registerList(new DemoList()),
 
     sources.createSource({
       name: '[title] completion source', // unique id
@@ -23,7 +23,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       ['n'],
       '[keymap-title]-keymap',
       async () => {
-        window.showMessage(`registerKeymap`);
+        window.showInformationMessage('registerKeymap');
       },
       { sync: false }
     ),
@@ -32,7 +32,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       event: 'InsertLeave',
       request: true,
       callback: () => {
-        window.showMessage(`registerAutocmd on InsertLeave`);
+        window.showInformationMessage('registerAutocmd on InsertLeave');
       },
     })
   );

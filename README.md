@@ -35,7 +35,7 @@ coc-test is created.
 
   cd /Users/fannheyward/src/coc-test && npm i
 
-then "set runtimepath^=/Users/fannheyward/src/coc-test" in vimrc/init.vim, and you will see "[coc.nvim] coc-test works!" in vim messages.
+then "set runtimepath^=/Users/fannheyward/src/coc-test" in vimrc/init.vim, and you will see "[coc.nvim] coc-test works!" notification.
 ```
 
 1. `:CocCommand coc-test.Command` for command
