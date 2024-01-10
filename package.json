@@ -3,7 +3,9 @@
   "version": "0.7.0",
   "author": "Heyward Fann <fannheyward@gmail.com>",
   "license": "MIT",
-  "bin": "bin/cli.js",
+  "bin": {
+    "create-coc-extension": "bin/cli.js"
+  },
   "engines": {
     "node": ">=16"
   },
@@ -13,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/fannheyward/create-coc-extension"
+    "url": "git+https://github.com/fannheyward/create-coc-extension.git"
   },
   "scripts": {
     "clean": "rimraf bin/cli.js",
