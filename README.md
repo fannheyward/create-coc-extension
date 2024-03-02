@@ -8,18 +8,41 @@ Create a coc extension quickly 🚀
 
 ```sh
 npx create-coc-extension [extension-name]
+# or
+npm exec create-coc-extension [extension-name]
+cd [extension-name]
+npm install
+npm run build
 ```
 
 ### npm
 
 ```sh
+npm create coc-extension [extension-name]
+# or
 npm init coc-extension [extension-name]
+cd [extension-name]
+npm install
+npm run build
 ```
 
-then cd to your extension root:
+### yarn
 
-- `npm install`
-- `npm run build`
+```sh
+yarn create coc-extension [extension-name]
+cd [extension-name]
+yarn install
+yarn run build
+```
+
+### bun
+
+```sh
+bun create coc-extension [extension-name]
+cd [extension-name]
+bun install
+bun run build
+```
 
 ## Example
 
