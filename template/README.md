@@ -8,7 +8,7 @@
 
 ## Keymaps
 
-`nmap <silent> <C-l> <Plug>(coc-[title]-keymap)`
+`nmap <silent> <C-l> <Plug>([title]-keymap)`
 
 ## Lists
 
