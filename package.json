@@ -31,7 +31,7 @@
     "esbuild": "^0.25.0",
     "fast-glob": "^3.3.2",
     "inquirer": "^9.2.12",
-    "rimraf": "^5.0.5",
+    "rimraf": "^6.1.0",
     "typescript": "^5.3.3",
     "which": "^4.0.0"
   },
